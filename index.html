@@ -328,116 +328,130 @@
               <h3>Tell us how you<br>want to help.</h3>
             </div>
 
-            <form
-               name="hope-for-all-enquiry"
-                method="POST"
-                action="thank-you.html"
-                data-netlify="true"
-                netlify-honeypot="bot-field"
-                id="enquiryForm">
+           
+<form
+    action="https://formsubmit.co/hello@hopeforall.org"
+    method="POST"
+    id="enquiryForm">
 
-              <input type="hidden" name="form-name" value="hope-for-all-enquiry">
+    <!-- FormSubmit Configuration -->
+    <input type="hidden" name="_subject" value="New Hope for All Enquiry">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" id="formRedirect">
 
-              <p class="hidden-field">
-                <label>Do not fill this out:
-                  <input name="bot-field">
-                </label>
-              </p>
+    <!-- Name and Email -->
+    <div class="form-row">
+        <div class="form-group">
+            <label for="fullName">Your name *</label>
+            <input type="text" id="fullName" name="name"
+                placeholder="Enter your name" required minlength="2">
+        </div>
 
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="fullName">Your name *</label>
-                  <input type="text" id="fullName" name="name"
-                    placeholder="Enter your name" required minlength="2">
-                </div>
+        <div class="form-group">
+            <label for="email">Email address *</label>
+            <input type="email" id="email" name="email"
+                placeholder="you@example.com" required>
+        </div>
+    </div>
 
-                <div class="form-group">
-                  <label for="email">Email address *</label>
-                  <input type="email" id="email" name="email"
-                    placeholder="you@example.com" required>
-                </div>
-              </div>
+    <!-- Phone -->
+    <div class="form-group">
+        <label for="phone">Phone number</label>
+        <input type="tel" id="phone" name="phone"
+            placeholder="+91 98765 43210"
+            pattern="[0-9+() -]{7,20}">
+    </div>
 
-              <div class="form-group">
-                <label for="phone">Phone number</label>
-                <input type="tel" id="phone" name="phone"
-                  placeholder="+91 98765 43210"
-                  pattern="[0-9+() -]{7,20}">
-              </div>
+    <!-- Interest -->
+    <div class="form-group">
+        <label for="interest">I am interested in *</label>
+        <select id="interest" name="interest" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="Volunteering">Volunteering</option>
+            <option value="Donation enquiry">Donation enquiry</option>
+            <option value="Partnership">Partnership</option>
+            <option value="Education support">Education support</option>
+            <option value="Women empowerment">Women empowerment</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
 
-              <div class="form-group">
-                <label for="interest">I am interested in *</label>
-                <select id="interest" name="interest" required>
-                  <option value="" disabled selected>Select an option</option>
-                  <option value="Volunteering">Volunteering</option>
-                  <option value="Donation enquiry">Donation enquiry</option>
-                  <option value="Partnership">Partnership</option>
-                  <option value="Education support">Education support</option>
-                  <option value="Women empowerment">Women empowerment</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-              
-<div class="form-group donation-group">
-  <label>Choose donation amount *</label>
+    <!-- Donation Amount -->
+    <div class="form-group donation-group">
+        <label>Choose donation amount *</label>
 
-  <div class="donation-options">
-    <label class="donation-option">
-      <input type="radio" name="donation_amount" value="₹100" required>
-      <span>₹100</span>
-    </label>
+        <div class="donation-options">
+            <label class="donation-option">
+                <input type="radio" name="donation_amount"
+                    value="₹100" required>
+                <span>₹100</span>
+            </label>
 
-    <label class="donation-option">
-      <input type="radio" name="donation_amount" value="₹500">
-      <span>₹500</span>
-    </label>
+            <label class="donation-option">
+                <input type="radio" name="donation_amount" value="₹500">
+                <span>₹500</span>
+            </label>
 
-    <label class="donation-option">
-      <input type="radio" name="donation_amount" value="₹1000">
-      <span>₹1,000</span>
-    </label>
+            <label class="donation-option">
+                <input type="radio" name="donation_amount" value="₹1000">
+                <span>₹1,000</span>
+            </label>
 
-    <label class="donation-option">
-      <input type="radio" name="donation_amount" value="₹2000">
-      <span>₹2,000</span>
-    </label>
+            <label class="donation-option">
+                <input type="radio" name="donation_amount" value="₹2000">
+                <span>₹2,000</span>
+            </label>
 
-    <label class="donation-option">
-      <input type="radio" name="donation_amount" value="Custom">
-      <span>Custom</span>
-    </label>
-  </div>
+            <label class="donation-option">
+                <input type="radio" name="donation_amount" value="Custom">
+                <span>Custom</span>
+            </label>
+        </div>
 
-  <input
-    type="number"
-    name="custom_amount"
-    id="customAmount"
-    placeholder="Enter custom amount (₹)"
-    min="1"
-    hidden
-  >
-</div>
+        <input
+            type="number"
+            name="custom_amount"
+            id="customAmount"
+            placeholder="Enter custom amount (₹)"
+            min="1"
+            hidden>
+    </div>
 
+    <!-- Message -->
+    <div class="form-group">
+        <label for="message">Your message *</label>
+        <textarea id="message" name="message" rows="4"
+            placeholder="Tell us how you'd like to make a difference..."
+            required minlength="10"></textarea>
+    </div>
 
-              <div class="form-group">
-                <label for="message">Your message *</label>
-                <textarea id="message" name="message" rows="4"
-                  placeholder="Tell us how you'd like to make a difference..."
-                  required minlength="10"></textarea>
-              </div>
+    <!-- Submit -->
+    <button type="submit" class="submit-button" id="submitButton">
+        <span>Send enquiry</span>
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </button>
 
-              <button type="submit" class="submit-button" id="submitButton">
-                <span>Send enquiry</span>
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </button>
+    <p class="form-note">
+        <i class="fa-solid fa-lock"></i>
+        Your information will only be used to respond to your enquiry.
+    </p>
 
-              <p class="form-note">
-                <i class="fa-solid fa-lock"></i>
-                Your information will only be used to respond to your enquiry.
-              </p>
+    <p class="form-feedback" id="formFeedback"
+        role="status" aria-live="polite"></p>
 
-              <p class="form-feedback" id="formFeedback" role="status" aria-live="polite"></p>
-            </form>
+</form>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const redirect = document.getElementById("formRedirect");
+
+    if (redirect) {
+        redirect.value =
+            window.location.origin + "/thank-you.html";
+    }
+});
+</script>
+
           </div>
 
         </div>
