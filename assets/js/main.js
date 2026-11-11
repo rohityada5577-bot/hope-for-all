@@ -291,3 +291,61 @@ donationOptions.forEach((option) => {
   });
 });
 
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const menuToggle = document.getElementById("menuToggle");
+    const primaryNav = document.getElementById("primaryNav");
+    const navLinks = document.querySelectorAll(
+        "#primaryNav .nav-link, #primaryNav .nav-donate"
+    );
+
+    if (!menuToggle || !primaryNav) return;
+
+    function openMenu() {
+        primaryNav.classList.add("active");
+        menuToggle.classList.add("active");
+        document.body.classList.add("menu-open");
+
+        menuToggle.setAttribute("aria-expanded", "true");
+        menuToggle.setAttribute("aria-label", "Close navigation menu");
+    }
+
+    function closeMenu() {
+        primaryNav.classList.remove("active");
+        menuToggle.classList.remove("active");
+        document.body.classList.remove("menu-open");
+
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+    }
+
+    menuToggle.addEventListener("click", function () {
+        const isOpen = primaryNav.classList.contains("active");
+
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+
+    navLinks.forEach(function (link) {
+        link.addEventListener("click", function () {
+            closeMenu();
+        });
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            closeMenu();
+        }
+    });
+
+    window.addEventListener("resize", function () {
+        if (window.innerWidth > 768) {
+            closeMenu();
+        }
+    });
+
+});
